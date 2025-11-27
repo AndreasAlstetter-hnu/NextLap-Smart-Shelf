@@ -11,7 +11,7 @@ rem --- [NEU] Ende Relaunch ---
 setlocal
 
 rem === muss zu Start-Skript passen ===
-set "APP_DIR=C:\Users\Drohnen GmbH\source\repos\Next_Lab_Demo\Test_NextLab\Test_Code"
+set "APP_DIR=C:\Users\Drohnen GmbH\source\repos\NextLap-Smart-Shelf\Next_Lab_Demo\Test_NextLab\Test_Code"
 set "MAIN=main.py"
 
 echo Suche laufende "%MAIN%" in:

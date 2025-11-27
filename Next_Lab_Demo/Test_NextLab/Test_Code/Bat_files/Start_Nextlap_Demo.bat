@@ -10,7 +10,7 @@ shift
 rem --- [NEU] Ende Relaunch ---
 
 rem === KONFIG ===
-set "APP_DIR=C:\Users\Drohnen GmbH\source\repos\Next_Lab_Demo\Test_NextLab\Test_Code"
+set "APP_DIR=C:\Users\Drohnen GmbH\source\repos\NextLap-Smart-Shelf\Next_Lab_Demo\Test_NextLab\Test_Code"
 set "MAIN=main.py"
 set "PORT=8310"   rem optional: gewünschter Port (wird als NEXTLAB_PORT gesetzt)
 

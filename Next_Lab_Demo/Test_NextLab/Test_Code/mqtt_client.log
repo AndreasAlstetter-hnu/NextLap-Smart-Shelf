@@ -1,0 +1,9 @@
+2025-11-27 16:48:14,730 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:48:14,751 - INFO - MQTT-Client verbindet sich…
+2025-11-27 16:48:14,752 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:48:14,968 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-11-27 16:48:14,968 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-11-27 16:48:22,917 - INFO - Neuer Auftrag empfangen: 123456 mit 1 Artikeln.
+2025-11-27 16:48:25,283 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 295}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-11-27 16:48:25,285 - INFO - Status-Polling gestartet.
+2025-11-27 16:49:42,319 - INFO - Status auf ttz-leipheim/picking_status veröffentlicht: Order 123456

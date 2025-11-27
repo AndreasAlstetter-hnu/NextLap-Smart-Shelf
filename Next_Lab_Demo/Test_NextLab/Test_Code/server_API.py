@@ -26,6 +26,7 @@ BEDARF_FILE = "data.json" # lokale Datei im von dir gezeigten Format
 # PORT = 8310                   # lokaler Adapter-Port für deine GUI
 # ---------------------------------------------------
 
+LAST_ORDER = {"id": None, "number": None}
 
 logging.basicConfig(filename='server.log', level=logging.INFO,
 format='%(asctime)s - %(levelname)s - %(message)s')
@@ -108,14 +109,35 @@ def api_delete_order_by_id(order_id: int):
     r.raise_for_status()
     return False
 
-
+def api_get_order_status(order_identifier: str):
+    """
+    Holt die Order und gibt nur das Status-Feld zurück.
+    """
+    url = f"{API_BASE}/v1/orders/{order_identifier}/"
+    r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
+    r.raise_for_status()
+    data = r.json()
+    return {
+        "id": data.get("id"),
+        "number": data.get("number"),
+        "status": data.get("status")
+    }
 
 def api_create_order(payload: dict):
+    global LAST_ORDER
     url = f"{API_BASE}/v1/orders/"
-    r = requests.post(url, headers={**HEADERS, "Content-Type": "application/json"},
-    data=json.dumps(payload), timeout=TIMEOUT, verify=VERIFY_TLS)
+    r = requests.post(
+        url,
+        headers={**HEADERS, "Content-Type": "application/json"},
+        data=json.dumps(payload),
+        timeout=TIMEOUT,
+        verify=VERIFY_TLS
+    )
     r.raise_for_status()
-    return r.json() # {"id": int}
+    created = r.json()  # {"id": int}
+    LAST_ORDER["id"] = created.get("id")
+    LAST_ORDER["number"] = payload.get("number")
+    return created
 
 
 
@@ -130,10 +152,15 @@ class PickingAdapterHandler(BaseHTTPRequestHandler):
 
 
     def do_GET(self):
+
         if self.path == "/Drohnen_GmbH":
             try:
-                data = api_get_orders()
-                self._send_json(200, data)
+                if not LAST_ORDER["id"] and not LAST_ORDER["number"]:
+                    return self._send_json(404, {"error": "Kein aktueller Auftrag bekannt"})
+
+                identifier = str(LAST_ORDER["id"] or LAST_ORDER["number"])
+                status_info = api_get_order_status(identifier)
+                self._send_json(200, status_info)
             except requests.HTTPError as e:
                 self._send_json(e.response.status_code, {"error": str(e), "body": e.response.text})
             except Exception as e:
@@ -218,6 +245,5 @@ if __name__ == "__main__":
     with HTTPServer(("0.0.0.0", PORT), PickingAdapterHandler) as httpd:
         logging.info(f"Adapter-Server gestartet auf Port {PORT}, Ziel: {API_BASE}")
         print(f"Adapter-Server läuft auf Port {PORT} → Ziel-API: {API_BASE}")
-        PickingAdapterHandler.do_POST(self)
         httpd.serve_forever()
         
