@@ -1,0 +1,244 @@
+2025-08-21 14:03:18,989 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-08-21 14:04:18,728 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-08-21 15:29:41,240 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-08-21 15:33:13,099 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io/v1/orders/
+2025-08-28 09:17:58,441 - INFO - Adapter-Server vorbereitet auf Port 8310
+2025-08-28 09:17:58,452 - INFO - HTTP-Server startet auf Port 8310
+2025-08-28 09:17:58,453 - INFO - MQTT-Client startetï¿½
+2025-08-28 09:17:58,453 - INFO - Drï¿½cke Ctrl+C zum Beenden
+2025-08-28 09:20:48,096 - INFO - Beenden angefordertï¿½
+2025-08-28 09:20:48,713 - INFO - HTTP-Server beendet.
+2025-08-28 09:22:04,375 - INFO - MQTT-Client startetï¿½
+2025-08-28 09:22:45,866 - INFO - MQTT-Client startetï¿½
+2025-08-28 09:22:45,878 - INFO - Adapter-Server vorbereitet auf Port 8310
+2025-08-28 09:22:45,878 - INFO - HTTP-Server startet auf Port 8310
+2025-08-28 10:05:09,712 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-08-28 13:44:46,157 - INFO - MQTT-Client startetï¿½
+2025-08-28 13:44:46,171 - INFO - Adapter-Server vorbereitet auf Port 8310
+2025-08-28 13:44:46,171 - INFO - HTTP-Server startet auf Port 8310
+2025-08-28 14:06:48,838 - INFO - MQTT-Client startetï¿½
+2025-08-28 14:06:48,853 - INFO - Adapter-Server vorbereitet auf Port 8310
+2025-08-28 14:06:48,853 - INFO - HTTP-Server startet auf Port 8310
+2025-08-28 14:31:02,813 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:31:02,825 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:41:19,624 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:41:19,636 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:45:11,983 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:45:11,994 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:48:10,080 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:48:10,091 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:53:48,039 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:53:48,050 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:57:01,924 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:57:01,936 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:59:22,628 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:59:22,640 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 14:59:29,077 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 14:59:29,088 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 15:03:33,203 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 15:03:33,215 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 15:21:49,066 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 15:21:49,077 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 15:22:07,360 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 15:22:07,371 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 16:16:41,383 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 16:16:41,395 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 16:20:18,277 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 16:20:18,288 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-28 16:20:58,699 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-28 16:20:58,710 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-08-29 17:20:27,965 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-08-29 17:20:27,975 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-09-10 09:39:01,999 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-09-10 09:39:02,015 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-09-15 09:25:32,085 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-09-15 09:25:32,095 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-14 19:08:26,049 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-14 19:08:26,071 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-14 19:08:41,096 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-14 19:08:41,107 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-14 19:18:35,612 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-14 19:18:35,633 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-14 19:43:02,190 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-14 19:43:22,702 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-14 19:43:22,752 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-14 19:43:31,152 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-14 19:43:31,174 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-14 19:43:31,358 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-14 19:43:31,359 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-14 19:43:32,088 - INFO - Alle Dienste beendet.
+2025-11-20 13:43:03,340 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 13:43:03,366 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 13:53:07,543 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 13:53:07,552 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:07:34,998 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:07:35,080 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:07:35,390 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:07:35,407 - INFO - Alle Dienste beendet.
+2025-11-20 14:09:43,059 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-20 14:10:04,500 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-20 14:10:28,758 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-20 14:10:44,729 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-20 14:11:01,486 - INFO - Adapter-Server gestartet auf Port 8310, Ziel: https://hnu.nextlap.io
+2025-11-20 14:24:30,715 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:24:30,725 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:31:53,734 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:31:53,897 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:31:54,077 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:31:54,077 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:31:54,079 - INFO - Alle Dienste beendet.
+2025-11-20 14:31:57,637 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:31:57,648 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:32:43,348 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:32:43,535 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:32:43,963 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:32:43,963 - INFO - Alle Dienste beendet.
+2025-11-20 14:33:10,796 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:33:10,806 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:40:19,706 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:40:19,782 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:40:19,792 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:40:20,792 - INFO - Alle Dienste beendet.
+2025-11-20 14:40:26,504 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:40:26,516 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:44:48,116 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:44:48,266 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:44:48,420 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:44:48,887 - INFO - Alle Dienste beendet.
+2025-11-20 14:44:51,070 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:44:51,082 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 14:57:53,996 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:57:54,092 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 14:57:54,517 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 14:57:54,518 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 14:57:54,934 - INFO - Alle Dienste beendet.
+2025-11-20 14:58:00,481 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 14:58:00,495 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 15:02:07,206 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 15:02:07,398 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 15:02:07,433 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 15:02:08,001 - INFO - Alle Dienste beendet.
+2025-11-20 15:02:14,480 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 15:02:14,492 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 15:29:39,457 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 15:29:39,515 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 15:29:39,896 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 15:29:39,897 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 15:29:40,629 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 15:29:40,630 - INFO - Alle Dienste beendet.
+2025-11-20 15:29:46,104 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 15:29:46,133 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 15:31:13,256 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 15:31:13,266 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 15:31:30,712 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 15:31:30,766 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 15:34:15,754 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 15:34:15,953 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 15:34:16,268 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 15:34:16,533 - INFO - Alle Dienste beendet.
+2025-11-20 15:34:22,089 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 15:34:22,101 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-20 16:01:52,442 - INFO - Signal 2 empfangen ï¿½ fahre Dienste sauber herunter ï¿½
+2025-11-20 16:01:52,502 - INFO - Stoppe HTTP-Server ï¿½
+2025-11-20 16:01:52,779 - INFO - Stoppe MQTT-Client ï¿½
+2025-11-20 16:01:53,482 - INFO - Alle Dienste beendet.
+2025-11-20 16:03:34,440 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-20 16:03:34,451 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:19:37,218 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:19:37,229 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:19:55,574 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:19:55,595 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:24:39,192 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:24:39,212 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:24:47,918 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:24:47,937 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:25:10,963 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:25:10,984 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 15:25:55,468 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 15:25:55,489 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:03:12,318 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:03:12,338 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:05:37,306 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:05:37,324 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:25:53,563 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:25:53,582 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:33:47,894 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:33:47,919 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:38:00,622 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:38:00,643 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:38:56,996 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:38:57,014 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:40:21,140 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:40:21,160 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:52:41,377 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-11-27 16:52:41,395 - INFO - MQTT-Client verbindet sichâ€¦
+2025-11-27 16:52:41,396 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-11-27 16:52:41,395 - INFO - MQTT-Client verbindet sich…
+2025-11-27 16:52:41,615 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-11-27 16:52:41,615 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-11-27 16:52:41,615 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-11-27 16:52:41,615 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-11-27 16:52:41,657 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-11-27 16:52:41,657 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-11-27 16:52:47,296 - DEBUG - Nachricht empfangen auf ttz-leipheim/picking_order: {
+"number": "123456",
+
+"items": [
+    {"number": "25"}
+]
+
+}
+2025-11-27 16:52:47,296 - DEBUG - Nachricht empfangen auf ttz-leipheim/picking_order: {
+"number": "123456",
+
+"items": [
+    {"number": "25"}
+]
+
+}
+2025-11-27 16:52:47,296 - DEBUG - JSON-Nachricht auf 'picking_order' erkannt.
+2025-11-27 16:52:47,296 - DEBUG - JSON-Nachricht auf 'picking_order' erkannt.
+2025-11-27 16:52:47,296 - DEBUG - Geparste Daten: {'number': '123456', 'items': [{'number': '25'}]}
+2025-11-27 16:52:47,296 - DEBUG - Geparste Daten: {'number': '123456', 'items': [{'number': '25'}]}
+2025-11-27 16:52:47,296 - INFO - Neuer Auftrag empfangen: 123456 mit 1 Artikeln.
+2025-11-27 16:52:47,296 - INFO - Neuer Auftrag empfangen: 123456 mit 1 Artikeln.
+2025-11-27 16:52:47,297 - DEBUG - Auftrag lokal gespeichert (data.json).
+2025-11-27 16:52:47,297 - DEBUG - Auftrag lokal gespeichert (data.json).
+2025-11-27 16:52:49,615 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 296}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-11-27 16:52:49,615 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 296}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-11-27 16:52:49,615 - INFO - Status-Polling gestartet.
+2025-11-27 16:52:49,615 - INFO - Status-Polling gestartet.
+2025-11-27 16:52:51,873 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:51,873 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:51,874 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:51,874 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:54,254 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:54,254 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:54,254 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:54,254 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:56,628 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:56,628 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:56,629 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:56,629 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:59,011 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:59,011 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:52:59,011 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:52:59,011 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:53:01,377 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:53:01,377 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:53:01,377 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:53:01,377 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:53:03,775 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:53:03,775 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'created'}
+2025-11-27 16:53:03,775 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:53:03,775 - DEBUG - Aktueller Status vom Server: created
+2025-11-27 16:53:06,131 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'completed'}
+2025-11-27 16:53:06,131 - DEBUG - Auftragsstatus abgerufen: {'id': 296, 'number': '123456', 'status': 'completed'}
+2025-11-27 16:53:06,131 - DEBUG - Aktueller Status vom Server: completed
+2025-11-27 16:53:06,131 - DEBUG - Aktueller Status vom Server: completed
+2025-11-27 16:53:06,132 - INFO - âœ“ Auftrag abgeschlossen!
+2025-11-27 16:53:06,132 - INFO - \u2713 Auftrag abgeschlossen!
+2025-11-27 16:53:06,132 - INFO - Status auf ttz-leipheim/picking_status verÃ¶ffentlicht: Order 123456
+2025-11-27 16:53:06,132 - INFO - Status auf ttz-leipheim/picking_status veröffentlicht: Order 123456
+2025-11-27 16:53:06,132 - DEBUG - VollstÃ¤ndige Payload: {'order_id': 296, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-11-27 16:53:06'}
+2025-11-27 16:53:06,132 - DEBUG - Vollständige Payload: {'order_id': 296, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-11-27 16:53:06'}
