@@ -117,6 +117,7 @@ def api_get_order_status(order_identifier: str):
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
     r.raise_for_status()
     data = r.json()
+    print(data)
     return {
         "id": data.get("id"),
         "number": data.get("number"),

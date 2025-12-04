@@ -182,7 +182,7 @@ class MqttOrderClient:
         Veröffentlicht den Auftragsstatus auf dem MQTT-Topic picking_status.
         """
         try:
-            payload = {
+            payload = {"Location" : "NextLap",
                 "order_id": status_data.get("id"),
                 "order_number": status_data.get("number"),
                 "status": status_data.get("status"),
