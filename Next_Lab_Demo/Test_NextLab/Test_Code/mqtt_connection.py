@@ -43,6 +43,7 @@ class MqttOrderClient:
                  password="F3e9TwAzE5R7",
                  topic="ttz-leipheim/amr",
                  topic_2="ttz-leipheim/picking_order",
+                 topic_3= "ttz-leipheim/state",
                  topic_status="ttz-leipheim/picking_status"):
         # Server
         self.server_url = server_url
@@ -54,7 +55,62 @@ class MqttOrderClient:
         self.password = password
         self.topic = topic
         self.topic_2 = topic_2
+        self.topic_3 = topic_3
         self.topic_status = topic_status
+
+
+        # Mapping_Dir
+        self.STATE_TO_ARTICLE = {
+            # PLATE
+            "Request_Pick_Plate_Lightweight_White": "V_L_WHITE_75",
+            "Request_Pick_Plate_Lightweight_Blue":  "V_L_BLUE_75",
+            "Request_Pick_Plate_Lightweight_Black": "V_L_BLACK_75",
+            "Request_Pick_Plate_Balanced_White":    "V_B_WHITE_75",
+            "Request_Pick_Plate_Balanced_Blue":     "V_B_BLUE_75",
+            "Request_Pick_Plate_Balanced_Black":    "V_B_BLACK_75",
+            "Request_Pick_Plate_Spartan_White":     "V_WHITE_75",
+            "Request_Pick_Plate_Spartan_Blue":      "V_BLUE_75",
+            "Request_Pick_Plate_Spartan_Black":     "V_BLACK_75",
+
+            # CASE
+            "Request_Pick_Case_White":  "V_WHITE_13",
+            "Request_Pick_Case_Yellow": "V_YELLOW_13",
+            "Request_Pick_Case_Orange": "V_ORANGE_13",
+            "Request_Pick_Case_Red":    "V_RED_13",
+            "Request_Pick_Case_Green":  "V_GREEN_13",
+            "Request_Pick_Case_Blue":   "V_BLUE_13",
+            "Request_Pick_Case_Brown":  "V_BROWN_13",
+            "Request_Pick_Case_Black":  "V_BLACK_13",
+
+            # BATTERY
+            "Request_Pick_Battery": "15",
+
+            # BATTERY CABLE
+            "Request_Pick_Battery_Cable": "25",
+
+            # ENGINES
+            "Request_Pick_Engine1": "66",
+            "Request_Pick_Engine2": "66",
+            "Request_Pick_Engine3": "66",
+            "Request_Pick_Engine4": "66",
+
+            # RFID TAG
+            "Request_Pick_RFID_Tag": "21",
+
+            # RECEIVER
+            "Request_Pick_Receiver": "16",
+
+            # RECEIVER CABLE
+            "Request_Pick_Receiver_Cable": "24",
+
+            # RIVETS
+            "Request_Pick_Rivets": "14",
+
+            # CONTROLLER
+            "Request_Pick_Controller": "17",
+        }
+
+    
 
         # Threading for Status Feedback
         self.polling_active = False
@@ -112,10 +168,28 @@ class MqttOrderClient:
             self.poll_thread.join(timeout=10)
         logger.info("Status-Polling gestoppt.")
 
+    def build_picking_order_from_state(self, state_str: str) -> dict | None:
+        article = self.STATE_TO_ARTICLE.get(state_str)
+        if not article:
+            logger.warning(f"Unbekannter State für Picking-Order: {state_str}")
+            return None
+
+        data = {
+            'number': "123456",
+            'items': [
+                {
+                    'number': f'{article}'
+                }
+            ]
+        }
+        return data
+
+
     def on_connect(self, client, userdata, flags, rc):
         logger.info(f"Verbunden mit MQTT-Broker, Code: {rc}")
         client.subscribe(self.topic)
         client.subscribe(self.topic_2)
+        client.subscribe(self.topic_3)
         logger.info(f"Subscribed to {self.topic} und {self.topic_2}")
 
     def on_message(self, client, userdata, msg):
@@ -123,6 +197,7 @@ class MqttOrderClient:
         payload_clean = payload.replace('\xa0', ' ')
         logger.debug(f"Nachricht empfangen auf {msg.topic}: {payload_clean}")
 
+        # 1) JSON-Aufträge wie bisher (topic_2)
         if msg.topic == self.topic_2 and payload_clean.startswith('{'):
             logger.debug("JSON-Nachricht auf 'picking_order' erkannt.")
             try:
@@ -145,10 +220,33 @@ class MqttOrderClient:
             except Exception as e:
                 logger.error(f"Fehler beim Verarbeiten des Auftrags: {e}")
 
+                
+
+        # 2) Alter Trigger (topic)
         elif msg.topic == self.topic and payload_clean == "wt_picking":
             logger.info("Trigger 'wt_picking' erkannt.")
             self.do_server_POST()
             self.start_status_polling()
+
+        # 3) NEU: State-Request auf topic_3 → Picking-Order für Nextlap
+        elif msg.topic == self.topic_3:
+            logger.info(f"State-Request empfangen: {payload_clean}")
+            data = self.build_picking_order_from_state(payload_clean)
+            if data is None:
+                logger.warning(f"Keine Zuordnung für State '{payload_clean}' gefunden. Auftrag wird ignoriert.")
+                return
+
+            try:
+                print(data)
+                with open("data.json", "w", encoding="utf-8") as file:
+                    json.dump(data, file, ensure_ascii=False, indent=2)
+                logger.debug("Auftrag aus State-Request lokal gespeichert (data.json).")
+                self.do_server_POST()
+                self.start_status_polling()
+            except Exception as e:
+                logger.error(f"Fehler beim Verarbeiten des State-Auftrags: {e}")
+
+
 
     def do_server_POST(self):
         try:
