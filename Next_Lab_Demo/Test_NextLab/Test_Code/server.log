@@ -110,3 +110,309 @@
 2025-12-12 06:56:22,753 - DEBUG - Auftragsstatus abgerufen: {'id': 559, 'number': '123456', 'status': 'created'}
 2025-12-12 06:56:22,754 - DEBUG - Aktueller Status vom Server: created
 2025-12-12 06:56:22,754 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:29:31,303 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:29:31,325 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:29:31,325 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:29:31,325 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:29:31,523 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:29:31,523 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:29:31,524 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:29:31,524 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:29:31,563 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:29:31,563 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:30:19,331 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Plate_Lightweight_Black
+2025-12-12 07:30:19,331 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Plate_Lightweight_Black
+2025-12-12 07:30:19,331 - INFO - State-Request empfangen: Request_Pick_Plate_Lightweight_Black
+2025-12-12 07:30:19,331 - INFO - State-Request empfangen: Request_Pick_Plate_Lightweight_Black
+2025-12-12 07:30:19,334 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:30:19,334 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:30:21,739 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 560}, 'payload': {'number': '123456', 'items': [{'number': 'V_L_BLACK_75'}]}}
+2025-12-12 07:30:21,739 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 560}, 'payload': {'number': '123456', 'items': [{'number': 'V_L_BLACK_75'}]}}
+2025-12-12 07:30:21,741 - INFO - Status-Polling gestartet.
+2025-12-12 07:30:21,741 - INFO - Status-Polling gestartet.
+2025-12-12 07:30:24,037 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:24,037 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:24,037 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:24,037 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:26,432 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:26,432 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:26,432 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:26,432 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:28,875 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:28,875 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:28,876 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:28,876 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:31,297 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:31,297 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:31,298 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:31,298 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:33,699 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:33,699 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:33,699 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:33,699 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:36,112 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:36,112 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:36,112 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:36,112 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:38,501 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:38,501 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:38,501 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:38,501 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:39,995 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:30:39,995 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:30:39,996 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:30:39,996 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:30:39,998 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:30:39,998 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:30:40,911 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:40,911 - DEBUG - Auftragsstatus abgerufen: {'id': 560, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:40,911 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:40,911 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:42,634 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 561}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:30:42,634 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 561}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:30:42,635 - DEBUG - Polling lÃ¤uft bereits.
+2025-12-12 07:30:42,635 - DEBUG - Polling läuft bereits.
+2025-12-12 07:30:43,304 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:43,304 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:43,304 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:43,304 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:45,747 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:45,747 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'created'}
+2025-12-12 07:30:45,747 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:45,747 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:30:48,143 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:30:48,143 - DEBUG - Auftragsstatus abgerufen: {'id': 561, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:30:48,144 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:30:48,144 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:30:48,144 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:30:48,144 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:30:48,144 - INFO - Status auf ttz-leipheim/picking_status verÃ¶ffentlicht: Order 123456
+2025-12-12 07:30:48,144 - INFO - Status auf ttz-leipheim/picking_status veröffentlicht: Order 123456
+2025-12-12 07:30:48,145 - DEBUG - VollstÃ¤ndige Payload: {'Location': 'NextLap', 'order_id': 561, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-12-12 07:30:48'}
+2025-12-12 07:30:48,145 - DEBUG - Vollständige Payload: {'Location': 'NextLap', 'order_id': 561, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-12-12 07:30:48'}
+2025-12-12 07:30:48,145 - INFO - Pick-Response 'Response_Battery_Cable_Picked' fÃ¼r State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state verÃ¶ffentlicht.
+2025-12-12 07:30:48,145 - INFO - Pick-Response 'Response_Battery_Cable_Picked' für State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state veröffentlicht.
+2025-12-12 07:30:48,215 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,215 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,216 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,216 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,216 - WARNING - Unbekannter State fÃ¼r Picking-Order: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,216 - WARNING - Unbekannter State für Picking-Order: Response_Battery_Cable_Picked
+2025-12-12 07:30:48,218 - WARNING - Keine Zuordnung fÃ¼r State 'Response_Battery_Cable_Picked' gefunden. Auftrag wird ignoriert.
+2025-12-12 07:30:48,218 - WARNING - Keine Zuordnung für State 'Response_Battery_Cable_Picked' gefunden. Auftrag wird ignoriert.
+2025-12-12 07:33:48,819 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:33:48,841 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:33:48,841 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:33:48,841 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:33:49,050 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:33:49,050 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:33:49,050 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:33:49,050 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:33:49,091 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:33:49,091 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:33:53,374 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:33:53,374 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:33:53,374 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:33:53,374 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:33:53,377 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:33:53,377 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:33:55,760 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 562}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:33:55,760 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 562}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:33:55,761 - INFO - Status-Polling gestartet.
+2025-12-12 07:33:55,761 - INFO - Status-Polling gestartet.
+2025-12-12 07:33:58,052 - DEBUG - Auftragsstatus abgerufen: {'id': 562, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:33:58,052 - DEBUG - Auftragsstatus abgerufen: {'id': 562, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:33:58,052 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:33:58,052 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:33:58,053 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:33:58,053 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:33:58,053 - INFO - Pick-Response 'Response_Battery_Cable_Picked' fÃ¼r State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state verÃ¶ffentlicht.
+2025-12-12 07:33:58,053 - INFO - Pick-Response 'Response_Battery_Cable_Picked' für State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state veröffentlicht.
+2025-12-12 07:33:58,088 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,088 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,089 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,089 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,089 - WARNING - Unbekannter State fÃ¼r Picking-Order: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,089 - WARNING - Unbekannter State für Picking-Order: Response_Battery_Cable_Picked
+2025-12-12 07:33:58,089 - WARNING - Keine Zuordnung fÃ¼r State 'Response_Battery_Cable_Picked' gefunden. Auftrag wird ignoriert.
+2025-12-12 07:33:58,089 - WARNING - Keine Zuordnung für State 'Response_Battery_Cable_Picked' gefunden. Auftrag wird ignoriert.
+2025-12-12 07:36:25,498 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:36:25,517 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:36:25,518 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:36:25,517 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:36:25,713 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:36:25,713 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:36:25,714 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:36:25,714 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:36:25,750 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:36:25,750 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:36:32,156 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:36:32,156 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:36:32,157 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:36:32,157 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:36:32,159 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:36:32,159 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:36:34,523 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 563}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:36:34,523 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 563}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:36:34,524 - INFO - Status-Polling gestartet.
+2025-12-12 07:36:34,524 - INFO - Status-Polling gestartet.
+2025-12-12 07:36:36,805 - DEBUG - Auftragsstatus abgerufen: {'id': 563, 'number': '123456', 'status': 'created'}
+2025-12-12 07:36:36,805 - DEBUG - Auftragsstatus abgerufen: {'id': 563, 'number': '123456', 'status': 'created'}
+2025-12-12 07:36:36,805 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:36:36,805 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:36:39,201 - DEBUG - Auftragsstatus abgerufen: {'id': 563, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:36:39,201 - DEBUG - Auftragsstatus abgerufen: {'id': 563, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:36:39,201 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:36:39,201 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:36:39,201 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:36:39,201 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:36:39,202 - INFO - Pick-Response 'Response_Battery_Cable_Picked' fÃ¼r State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state verÃ¶ffentlicht.
+2025-12-12 07:36:39,202 - INFO - Pick-Response 'Response_Battery_Cable_Picked' für State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state veröffentlicht.
+2025-12-12 07:36:39,236 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:36:39,236 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Response_Battery_Cable_Picked
+2025-12-12 07:36:39,237 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:36:39,237 - INFO - State-Request empfangen: Response_Battery_Cable_Picked
+2025-12-12 07:36:39,237 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: Response_Battery_Cable_Picked
+2025-12-12 07:36:39,237 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: Response_Battery_Cable_Picked
+2025-12-12 07:39:22,423 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:39:22,441 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:39:22,441 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:39:22,441 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:39:22,663 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:39:22,663 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:39:22,664 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:39:22,664 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:39:22,701 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:39:22,701 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:39:26,723 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:39:26,723 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:39:26,724 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:39:26,724 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:39:26,726 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:39:26,726 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:39:29,072 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 564}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:39:29,072 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 564}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:39:29,072 - INFO - Status-Polling gestartet.
+2025-12-12 07:39:29,072 - INFO - Status-Polling gestartet.
+2025-12-12 07:39:31,379 - DEBUG - Auftragsstatus abgerufen: {'id': 564, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:39:31,379 - DEBUG - Auftragsstatus abgerufen: {'id': 564, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:39:31,379 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:39:31,379 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:39:31,379 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:39:31,379 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:39:31,380 - INFO - Pick-Response 'Response_Battery_Cable_Picked' fÃ¼r State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state verÃ¶ffentlicht.
+2025-12-12 07:39:31,380 - INFO - Pick-Response 'Response_Battery_Cable_Picked' für State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state veröffentlicht.
+2025-12-12 07:39:31,413 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:31,413 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:31,413 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:31,413 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:31,413 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:31,413 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"
+2025-12-12 07:39:51,788 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:39:51,821 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:39:51,821 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:39:51,821 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:39:52,094 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:39:52,094 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:39:52,095 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:39:52,095 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:39:52,137 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:39:52,137 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:39:56,065 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:39:56,065 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:39:56,065 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:39:56,065 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:39:56,067 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:39:56,067 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:39:58,431 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 565}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:39:58,431 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 565}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:39:58,431 - INFO - Status-Polling gestartet.
+2025-12-12 07:39:58,431 - INFO - Status-Polling gestartet.
+2025-12-12 07:40:00,729 - DEBUG - Auftragsstatus abgerufen: {'id': 565, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:40:00,729 - DEBUG - Auftragsstatus abgerufen: {'id': 565, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:40:00,729 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:40:00,729 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:40:00,729 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:40:00,729 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:40:00,730 - INFO - Status auf ttz-leipheim/picking_status verÃ¶ffentlicht: Order 123456
+2025-12-12 07:40:00,730 - INFO - Status auf ttz-leipheim/picking_status veröffentlicht: Order 123456
+2025-12-12 07:40:00,731 - DEBUG - VollstÃ¤ndige Payload: {'Location': 'NextLap', 'order_id': 565, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-12-12 07:40:00'}
+2025-12-12 07:40:00,731 - DEBUG - Vollständige Payload: {'Location': 'NextLap', 'order_id': 565, 'order_number': '123456', 'status': 'completed', 'timestamp': '2025-12-12 07:40:00'}
+2025-12-12 07:40:00,731 - INFO - Pick-Response 'Response_Battery_Cable_Picked' fÃ¼r State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state verÃ¶ffentlicht.
+2025-12-12 07:40:00,731 - INFO - Pick-Response 'Response_Battery_Cable_Picked' für State 'Request_Pick_Battery_Cable' auf ttz-leipheim/state veröffentlicht.
+2025-12-12 07:40:00,797 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:40:00,797 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:40:00,797 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:40:00,797 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:40:00,798 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"
+2025-12-12 07:40:00,798 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"
+2025-12-12 07:47:58,295 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:47:58,314 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:47:58,314 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:47:58,314 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:47:58,583 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:47:58,583 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:47:58,586 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:47:58,586 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:47:58,629 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:47:58,629 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:48:04,997 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:48:04,997 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:48:04,997 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:48:04,997 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:48:04,999 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:48:04,999 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:48:07,384 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 566}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:48:07,384 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 566}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:48:07,386 - INFO - Status-Polling gestartet.
+2025-12-12 07:48:07,386 - INFO - Status-Polling gestartet.
+2025-12-12 07:48:09,654 - DEBUG - Auftragsstatus abgerufen: {'id': 566, 'number': '123456', 'status': 'created'}
+2025-12-12 07:48:09,654 - DEBUG - Auftragsstatus abgerufen: {'id': 566, 'number': '123456', 'status': 'created'}
+2025-12-12 07:48:09,654 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:48:09,654 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:48:12,028 - DEBUG - Auftragsstatus abgerufen: {'id': 566, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:48:12,028 - DEBUG - Auftragsstatus abgerufen: {'id': 566, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:48:12,029 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:48:12,029 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:48:12,029 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:48:12,029 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:48:12,029 - INFO - Status auf ttz-leipheim/picking_status verÃ¶ffentlicht:Response_Battery_Cable_Picked
+2025-12-12 07:48:12,029 - INFO - Status auf ttz-leipheim/picking_status veröffentlicht:Response_Battery_Cable_Picked
+2025-12-12 07:49:42,448 - INFO - HTTP-Server gestartet auf Port 8310 (Thread http-server)
+2025-12-12 07:49:42,482 - INFO - MQTT-Client gestartet (Thread mqtt-client)
+2025-12-12 07:49:42,482 - INFO - MQTT-Client verbindet sichâ€¦
+2025-12-12 07:49:42,482 - INFO - MQTT-Client verbindet sich…
+2025-12-12 07:49:42,685 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:49:42,685 - INFO - Verbunden mit MQTT-Broker, Code: 0
+2025-12-12 07:49:42,687 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:49:42,687 - INFO - Subscribed to ttz-leipheim/amr und ttz-leipheim/picking_order
+2025-12-12 07:49:42,729 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:49:42,729 - DEBUG - Nachricht empfangen auf ttz-leipheim/amr: reconnected
+2025-12-12 07:49:45,865 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:49:45,865 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: Request_Pick_Battery_Cable
+2025-12-12 07:49:45,865 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:49:45,865 - INFO - State-Request empfangen: Request_Pick_Battery_Cable
+2025-12-12 07:49:45,868 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:49:45,868 - DEBUG - Auftrag aus State-Request lokal gespeichert (data.json).
+2025-12-12 07:49:48,265 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 567}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:49:48,265 - INFO - Auftrag erfolgreich erstellt: {'created_order': {'id': 567}, 'payload': {'number': '123456', 'items': [{'number': '25'}]}}
+2025-12-12 07:49:48,266 - INFO - Status-Polling gestartet.
+2025-12-12 07:49:48,266 - INFO - Status-Polling gestartet.
+2025-12-12 07:49:50,553 - DEBUG - Auftragsstatus abgerufen: {'id': 567, 'number': '123456', 'status': 'created'}
+2025-12-12 07:49:50,553 - DEBUG - Auftragsstatus abgerufen: {'id': 567, 'number': '123456', 'status': 'created'}
+2025-12-12 07:49:50,553 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:49:50,553 - DEBUG - Aktueller Status vom Server: created
+2025-12-12 07:49:52,949 - DEBUG - Auftragsstatus abgerufen: {'id': 567, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:49:52,949 - DEBUG - Auftragsstatus abgerufen: {'id': 567, 'number': '123456', 'status': 'completed'}
+2025-12-12 07:49:52,949 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:49:52,949 - DEBUG - Aktueller Status vom Server: completed
+2025-12-12 07:49:52,949 - INFO - âœ“ Auftrag abgeschlossen!
+2025-12-12 07:49:52,949 - INFO - \u2713 Auftrag abgeschlossen!
+2025-12-12 07:49:52,949 - INFO - Status auf ttz-leipheim/state verÃ¶ffentlicht:Response_Battery_Cable_Picked
+2025-12-12 07:49:52,949 - INFO - Status auf ttz-leipheim/state veröffentlicht:Response_Battery_Cable_Picked
+2025-12-12 07:49:52,984 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:49:52,984 - DEBUG - Nachricht empfangen auf ttz-leipheim/state: "Response_Battery_Cable_Picked"
+2025-12-12 07:49:52,985 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:49:52,985 - INFO - State-Request empfangen: "Response_Battery_Cable_Picked"
+2025-12-12 07:49:52,985 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"
+2025-12-12 07:49:52,985 - DEBUG - Ignoriere Nicht-Request-State auf topic_3: "Response_Battery_Cable_Picked"

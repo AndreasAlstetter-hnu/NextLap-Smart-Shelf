@@ -43,8 +43,7 @@ class MqttOrderClient:
                  password="F3e9TwAzE5R7",
                  topic="ttz-leipheim/amr",
                  topic_2="ttz-leipheim/picking_order",
-                 topic_3="ttz-leipheim/state",
-                 topic_status="ttz-leipheim/picking_status"):
+                 topic_3="ttz-leipheim/state"):
         # Server
         """
         Initialisiert the MQTT-Client with the given parameters.
@@ -69,7 +68,6 @@ class MqttOrderClient:
         self.topic = topic
         self.topic_2 = topic_2
         self.topic_3 = topic_3
-        self.topic_status = topic_status
 
         # Threading for Status Feedback
         self.polling_active = False
@@ -132,8 +130,60 @@ class MqttOrderClient:
 
             # Motoren
             "Request_Pick_Engines":"18"
-
+            
         }
+
+                # Mapping von Request-State auf Response-Topic-Payload
+        self.REQUEST_TO_RESPONSE = {
+            # PLATE
+            "Request_Pick_Plate_Lightweight_White":  "Response_Plate_Picked",
+            "Request_Pick_Plate_Lightweight_Blue":   "Response_Plate_Picked",
+            "Request_Pick_Plate_Lightweight_Black":  "Response_Plate_Picked",
+            "Request_Pick_Plate_Balanced_White":     "Response_Plate_Picked",
+            "Request_Pick_Plate_Balanced_Blue":      "Response_Plate_Picked",
+            "Request_Pick_Plate_Balanced_Black":     "Response_Plate_Picked",
+            "Request_Pick_Plate_Spartan_White":      "Response_Plate_Picked",
+            "Request_Pick_Plate_Spartan_Blue":       "Response_Plate_Picked",
+            "Request_Pick_Plate_Spartan_Black":      "Response_Plate_Picked",
+
+            # CASE
+            "Request_Pick_Case_White":               "Response_Case_Picked",
+            "Request_Pick_Case_Yellow":              "Response_Case_Picked",
+            "Request_Pick_Case_Orange":              "Response_Case_Picked",
+            "Request_Pick_Case_Red":                 "Response_Case_Picked",
+            "Request_Pick_Case_Green":               "Response_Case_Picked",
+            "Request_Pick_Case_Blue":                "Response_Case_Picked",
+            "Request_Pick_Case_Brown":               "Response_Case_Picked",
+            "Request_Pick_Case_Black":               "Response_Case_Picked",
+
+            # BATTERY
+            "Request_Pick_Battery":                  "Response_Battery_Picked",
+
+            # BATTERY CABLE
+            "Request_Pick_Battery_Cable":            "Response_Battery_Cable_Picked",
+
+            # ENGINES 
+            "Request_Pick_Engines":                  "Response_Engines_Picked",
+
+            # RFID TAG
+            "Request_Pick_RFID_Tag":                 "Response_RFID_Tag_Picked",
+
+            # RECEIVER
+            "Request_Pick_Receiver":                 "Response_Receiver_Picked",
+
+            # RECEIVER CABLE
+            "Request_Pick_Receiver_Cable":           "Response_Receiver_Cable_Picked",
+
+            # RIVETS
+            "Request_Pick_Rivets":                   "Response_Rivets_Picked",
+
+            # CONTROLLER
+            "Request_Pick_Controller":               "Response_Controller_Picked"
+        }
+
+
+        # Merkt sich den zuletzt angeforderten Pick-State
+        self.last_pick_state = None
 
 
         # Callbacks registrieren
@@ -176,8 +226,26 @@ class MqttOrderClient:
 
                 if current_status == "completed":
                     logger.info("✓ Auftrag abgeschlossen!")
-                    # Nur hier veröffentlichen
-                    self.publish_status_to_mqtt(status_data)
+
+                    # Zusätzlich: Response_..._Picked an topic_3 senden
+                    if self.last_pick_state:
+                        response_name = self.REQUEST_TO_RESPONSE.get(self.last_pick_state)
+                        if response_name:
+                            try:
+                                # Hier nur den Response-Namen als Payload senden
+                                payload_resp = response_name
+                                # Nur hier veröffentlichen (Status an Nextlap)
+                                self.publish_status_to_mqtt(payload_resp)
+                            except Exception as e:
+                                logger.error(f"Fehler beim Veröffentlichen des Status: {e}")
+                        else:
+                            logger.warning(
+                                f"Kein Response-Mapping für last_pick_state='{self.last_pick_state}' gefunden."
+                            )
+
+                        # Nach erfolgreicher/versuchter Rückmeldung State zurücksetzen
+                        self.last_pick_state = None
+
                     # Polling stoppen
                     self.polling_active = False
 
@@ -297,6 +365,15 @@ class MqttOrderClient:
         # 3) NEU: State-Request auf topic_3 → Picking-Order für Nextlap
         elif msg.topic == self.topic_3:
             logger.info(f"State-Request empfangen: {payload_clean}")
+
+            # Nur echte Request_* States für Picking-Orders verwenden
+            if not payload_clean.startswith("Request_"):
+                logger.debug(f"Ignoriere Nicht-Request-State auf topic_3: {payload_clean}")
+                return
+
+            # Letzten Pick-State merken (nur bei Request_*)
+            self.last_pick_state = payload_clean
+
             data = self.build_picking_order_from_state(payload_clean)
             if data is None:
                 logger.warning(f"Keine Zuordnung für State '{payload_clean}' gefunden. Auftrag wird ignoriert.")
@@ -362,19 +439,12 @@ class MqttOrderClient:
         :raises Exception: Wenn es einen Fehler bei der Veröffentlichung gibt
         """
         try:
-            payload = {"Location":"NextLap",
-                "order_id": status_data.get("id"),
-                "order_number": status_data.get("number"),
-                "status": status_data.get("status"),
-                "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
-            }
             
-            message = json.dumps(payload, ensure_ascii=False)
-            result = self.client.publish(self.topic_status, message, qos=1)
+            message = json.dumps(status_data, ensure_ascii=False)
+            result = self.client.publish(self.topic_3, message, qos=1)
             
             if result.rc == mqtt.MQTT_ERR_SUCCESS:
-                logger.info(f"Status auf {self.topic_status} veröffentlicht: Order {payload['order_number']}")
-                logger.debug(f"Vollständige Payload: {payload}")
+                logger.info(f"Status auf {self.topic_3} veröffentlicht:{status_data}")
             else:
                 logger.error(f"Fehler beim Veröffentlichen: {result.rc}")
                 
