@@ -43,9 +43,22 @@ class MqttOrderClient:
                  password="F3e9TwAzE5R7",
                  topic="ttz-leipheim/amr",
                  topic_2="ttz-leipheim/picking_order",
-                 topic_3= "ttz-leipheim/state",
+                 topic_3="ttz-leipheim/state",
                  topic_status="ttz-leipheim/picking_status"):
         # Server
+        """
+        Initialisiert the MQTT-Client with the given parameters.
+
+        :param server_url: URL of the server for HTTP requests
+        :param broker: URL of the MQTT broker
+        :param port: Port of the MQTT broker
+        :param username: Username for the MQTT broker
+        :param password: Password for the MQTT broker
+        :param topic: MQTT topic for the status updates
+        :param topic_2: MQTT topic for the picking orders
+        :param topic_3: MQTT topic for the state updates
+        :param topic_status: MQTT topic for the status updates
+        """
         self.server_url = server_url
 
         # MQTT
@@ -58,8 +71,16 @@ class MqttOrderClient:
         self.topic_3 = topic_3
         self.topic_status = topic_status
 
+        # Threading for Status Feedback
+        self.polling_active = False
+        self.poll_interval = 0.1  # Sekunden zwischen Status-Abfragen
+        self.poll_thread = None
 
-        # Mapping_Dir
+        # MQTT-Client
+        self.client = mqtt.Client()
+        self.client.username_pw_set(self.username, self.password)
+        self.client.tls_set()
+
         self.STATE_TO_ARTICLE = {
             # PLATE
             "Request_Pick_Plate_Lightweight_White": "V_L_WHITE_75",
@@ -108,27 +129,25 @@ class MqttOrderClient:
 
             # CONTROLLER
             "Request_Pick_Controller": "17",
+
+            # Motoren
+            "Request_Pick_Engines":"18"
+
         }
 
-    
-
-        # Threading for Status Feedback
-        self.polling_active = False
-        self.poll_interval = 0.1  # Sekunden zwischen Status-Abfragen
-        self.poll_thread = None
-
-        # MQTT-Client
-        self.client = mqtt.Client()
-        self.client.username_pw_set(self.username, self.password)
-        self.client.tls_set()
 
         # Callbacks registrieren
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
 
     def start_status_polling(self):
+
         """
-        Startet periodisches Polling des Auftragsstatus.
+        Startet das periodische Polling des Auftragsstatus.
+
+        Wenn das Polling bereits aktiv ist, wird nichts unternommen.
+        Ansonsten wird ein neuer Thread gestartet, der den Status alle 10 Sekunden abfragt.
+        Wenn der Auftrag abgeschlossen ist, wird der Status veröffentlicht.
         """
         if self.polling_active:
             logger.debug("Polling läuft bereits.")
@@ -140,9 +159,14 @@ class MqttOrderClient:
         logger.info("Status-Polling gestartet.")
 
     def _poll_status_loop(self):
+
         """
-        Interne Schleife für Status-Polling.
-        Veröffentlicht nur, wenn der Auftrag abgeschlossen ist.
+        Periodischer Loop, der den Auftragsstatus von der API abfragt.
+
+        Wenn der Auftrag abgeschlossen ist, wird der Status veröffentlicht und das Polling gestoppt.
+
+        :return: None
+        :rtype: None
         """
         while self.polling_active:
             status_data = self.get_server_status()
@@ -159,33 +183,57 @@ class MqttOrderClient:
 
             time.sleep(self.poll_interval)
 
-    def stop_status_polling(self):
-        """
-        Stoppt das periodische Polling.
-        """
-        self.polling_active = False
-        if self.poll_thread:
-            self.poll_thread.join(timeout=10)
-        logger.info("Status-Polling gestoppt.")
-
     def build_picking_order_from_state(self, state_str: str) -> dict | None:
+        """
+        Builds a picking order from a given state string.
+
+        :param state_str: The state string to build the order from
+        :type state_str: str
+        :return: A dictionary containing the picking order data, or None if the state string is unknown
+        :rtype: dict | None
+        """
         article = self.STATE_TO_ARTICLE.get(state_str)
         if not article:
             logger.warning(f"Unbekannter State für Picking-Order: {state_str}")
             return None
 
         data = {
-            'number': "123456",
-            'items': [
+            "number": "123456",
+            "items": [
                 {
-                    'number': f'{article}'
+                    "number": article
                 }
             ]
         }
         return data
 
 
+    def stop_status_polling(self):
+      
+        """
+        Stops the status polling thread and waits for it to finish.
+
+        :return: None
+        :rtype: None
+        """
+        self.polling_active = False
+        if self.poll_thread:
+            self.poll_thread.join(timeout=10)
+        logger.info("Status-Polling gestoppt.")
+
     def on_connect(self, client, userdata, flags, rc):
+        """
+        Called when the client receives a CONNACK response from the server.
+
+        :param client: The client instance for this callback
+        :param userdata: The private user data as set in Client() or user_data_set()
+        :param flags: Response flags sent by the broker
+        :param rc: The connection result
+        :type client: mqtt.Client
+        :type userdata: dict
+        :type flags: dict
+        :type rc: int
+        """
         logger.info(f"Verbunden mit MQTT-Broker, Code: {rc}")
         client.subscribe(self.topic)
         client.subscribe(self.topic_2)
@@ -193,6 +241,26 @@ class MqttOrderClient:
         logger.info(f"Subscribed to {self.topic} und {self.topic_2}")
 
     def on_message(self, client, userdata, msg):
+        """
+        Called when a message is received on a subscribed topic.
+
+        This callback is used to process incoming messages on the 'picking_order' topic (topic_2),
+        which contain the order data in JSON format. If the message is not a valid JSON object or
+        does not contain the 'number' and 'items' keys, it will be ignored.
+
+        If a message is received on the 'wt_picking' topic (topic), it will be treated as a trigger
+        to send a new order to the server.
+
+        If a message is received on the 'state_request' topic (topic_3), it will be used to build a
+        picking order for Nextlap. If the state string is not known, the order will be ignored.
+
+        :param client: The client instance for this callback
+        :param userdata: The private user data as set in Client() or user_data_set()
+        :param msg: The message itself
+        :type client: mqtt.Client
+        :type userdata: dict
+        :type msg: mqtt.MQTTMessage
+        """
         payload = msg.payload.decode("utf-8-sig").strip()
         payload_clean = payload.replace('\xa0', ' ')
         logger.debug(f"Nachricht empfangen auf {msg.topic}: {payload_clean}")
@@ -220,8 +288,6 @@ class MqttOrderClient:
             except Exception as e:
                 logger.error(f"Fehler beim Verarbeiten des Auftrags: {e}")
 
-                
-
         # 2) Alter Trigger (topic)
         elif msg.topic == self.topic and payload_clean == "wt_picking":
             logger.info("Trigger 'wt_picking' erkannt.")
@@ -237,7 +303,6 @@ class MqttOrderClient:
                 return
 
             try:
-                print(data)
                 with open("data.json", "w", encoding="utf-8") as file:
                     json.dump(data, file, ensure_ascii=False, indent=2)
                 logger.debug("Auftrag aus State-Request lokal gespeichert (data.json).")
@@ -246,9 +311,14 @@ class MqttOrderClient:
             except Exception as e:
                 logger.error(f"Fehler beim Verarbeiten des State-Auftrags: {e}")
 
-
-
     def do_server_POST(self):
+        """
+        Sends a POST request to the server to create a new order.
+
+        :return: None
+        :rtype: None
+        :raises Exception: If there is an error during the request
+        """
         try:
             response = requests.post(self.server_url, timeout=5)
             response.raise_for_status()
@@ -257,8 +327,13 @@ class MqttOrderClient:
             logger.error(f"Fehler beim Erstellen des Auftrags: {e}")
 
     def get_server_status(self):
+
         """
-        Fragt den aktuellen Status des zuletzt erstellten Auftrags vom Server ab.
+        Abfragt den Status eines Auftrags von der API.
+
+        :return: Ein Dictionary mit dem Status des Auftrags
+        :rtype: dict
+        :raises Exception: Wenn es einen Fehler bei der Anfrage gibt
         """
         try:
             response = requests.get(self.server_url, timeout=5)
@@ -276,8 +351,15 @@ class MqttOrderClient:
             return None
 
     def publish_status_to_mqtt(self, status_data):
+
         """
-        Veröffentlicht den Auftragsstatus auf dem MQTT-Topic picking_status.
+        Veröffentlicht den Status eines Auftrags an die MQTT-API.
+
+        :param status_data: Ein Dictionary mit dem Status des Auftrags
+        :type status_data: dict
+        :return: None
+        :rtype: None
+        :raises Exception: Wenn es einen Fehler bei der Veröffentlichung gibt
         """
         try:
             payload = {"Location":"NextLap",
@@ -300,11 +382,23 @@ class MqttOrderClient:
             logger.error(f"Fehler beim Veröffentlichen des Status: {e}")
 
     def start(self):
+        """
+        Verbindet den MQTT-Client mit dem Broker und startet den Loop.
+
+        :return: None
+        :rtype: None
+        """
         logger.info("MQTT-Client verbindet sich…")
         self.client.connect(self.broker, self.port, keepalive=60)
         self.client.loop_start()
 
     def stop(self):
+        """
+        Stops the MQTT client and disconnects from the broker.
+
+        :return: None
+        :rtype: None
+        """
         logger.info("MQTT-Client wird gestoppt…")
         self.client.loop_stop()
         self.client.disconnect()

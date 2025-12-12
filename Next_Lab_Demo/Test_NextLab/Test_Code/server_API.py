@@ -2,14 +2,12 @@ import json
 import logging
 import random
 import requests
-import threading
+import os, sys
 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from mqtt_connection import MqttOrderClient
 
 
-import os, sys
 PORT = int(os.environ.get("NEXTLAB_PORT") or (sys.argv[1] if len(sys.argv) > 1 else 8310))
 # ... starte deinen Server auf PORT ...
 
@@ -34,18 +32,43 @@ format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def load_bedarf_from_file(path=BEDARF_FILE):
-    """Lädt deinen Bedarf (dein JSON-Format) von der lokalen Datei."""
+
+    """
+    Lädt eine lokale Datei im von dir gezeigten Format.
+    :param path: Der Pfad zur Datei (standardmäßig "data.json")
+    :type path: str
+    :return: Die geladene Datei im JSON-Format
+    :rtype: dict
+    """
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 
 def build_order_payload_from_bedarf(bedarf: dict) -> dict:
+
     """
-    Baut die Payload exakt so, wie von dir gewünscht:
-   {
-    "number": "123456",
-    "items": [{"number": "25"}, ...] } """
+    Builds a payload for an order from a bedarf (JSON-Format).
+    
+    The payload will contain the order number and a list of items.
+    
+    The order number will be a random 6-digit number if no number is given in the bedarf.
+    
+    The items will be filtered according to the following rules:
+    
+        - If the item number is empty, it will be skipped.
+        - If the item number contains any characters other than letters, numbers and underscores, it will be skipped.
+    
+    If no items remain after filtering, a ValueError will be raised.
+    
+    If any invalid items were skipped, a warning will be printed to the console.
+    
+    :param bedarf: The bedarf (JSON-Format) to build the payload from.
+    :type bedarf: dict
+    :return: The built payload.
+    :rtype: dict
+    :raises ValueError: If no items remain after filtering.
+    """
     import re
     order_number = str(bedarf.get("number") or ''.join(random.choices('0123456789', k=6)))
     raw_items = bedarf.get("items", [])
@@ -79,6 +102,12 @@ def build_order_payload_from_bedarf(bedarf: dict) -> dict:
 
 
 def api_get_orders():
+    """
+    Liefert eine Liste aller Aufträge des Ziel-API
+    https://hnu.nextlab.io
+    :return: Liste der Aufträge im JSON-Format
+    :rtype: dict
+    """
     url = f"{API_BASE}/v1/orders/"
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
     r.raise_for_status()
@@ -87,10 +116,15 @@ def api_get_orders():
 
 
 def api_retrieve_order_by_number_or_id(order_identifier: str):
+
     """
-    Versucht zuerst ID (Ganzzahl), sonst Nummer.
-    API sagt: GET /v1/orders/{orderId or orderNumber}/
+    Liefert einen Auftrag anhand seiner ID oder Nummer vom Ziel-API.
+    :param order_identifier: Die ID oder die Nummer des Auftrags
+    :type order_identifier: str
+    :return: Der Auftrag im JSON-Format
+    :rtype: dict
     """
+
     url = f"{API_BASE}/v1/orders/{order_identifier}/"
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
     if r.status_code == 200:
@@ -101,6 +135,13 @@ def api_retrieve_order_by_number_or_id(order_identifier: str):
 
 
 def api_delete_order_by_id(order_id: int):
+    """
+    Löscht den Auftrag mit der angegebenen ID.
+    :param order_id: Die ID des Auftrags
+    :type order_id: int
+    :return: True, wenn der Auftrag erfolgreich gelöscht wurde, sonst False
+    :rtype: bool
+    """
     url = f"{API_BASE}/v1/orders/{order_id}/"
     r = requests.delete(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
     # API antwortet bei Erfolg leer; 204/200 sind ok
@@ -110,8 +151,13 @@ def api_delete_order_by_id(order_id: int):
     return False
 
 def api_get_order_status(order_identifier: str):
+
     """
-    Holt die Order und gibt nur das Status-Feld zurück.
+    Gibt den Status eines Auftrags zurück.
+    :param order_identifier: Die ID oder die Nummer des Auftrags
+    :type order_identifier: str
+    :return: Ein Dictionary mit den Keys "id", "number" und "status"
+    :rtype: dict
     """
     url = f"{API_BASE}/v1/orders/{order_identifier}/"
     r = requests.get(url, headers=HEADERS, timeout=TIMEOUT, verify=VERIFY_TLS)
@@ -125,6 +171,13 @@ def api_get_order_status(order_identifier: str):
     }
 
 def api_create_order(payload: dict):
+    """
+    Erstellt einen neuen Auftrag auf dem Ziel-API.
+    :param payload: Die Payload im JSON-Format
+    :type payload: dict
+    :return: Der erstellte Auftrag im JSON-Format
+    :rtype: dict
+    """
     global LAST_ORDER
     url = f"{API_BASE}/v1/orders/"
     r = requests.post(
@@ -146,6 +199,16 @@ class PickingAdapterHandler(BaseHTTPRequestHandler):
 
 
     def _send_json(self, status, obj):
+        """
+        Sends a JSON response with the given status and object.
+
+        :param status: The HTTP status code to send
+        :param obj: The object to serialize into JSON
+        :type status: int
+        :type obj: dict
+        :return: None
+        :rtype: None
+        """
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.end_headers()
@@ -154,6 +217,20 @@ class PickingAdapterHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
 
+        """
+        Handles a GET request to /Drohnen_GmbH.
+
+        If there is no current order, returns a 404 error with a JSON body containing the error "Kein aktueller Auftrag bekannt".
+
+        Otherwise, retrieves the status of the current order using the API and sends it back as a JSON response.
+
+        If there is an error during the API call, sends back the error as a JSON response with the same status code as the error.
+
+        If there is any other exception, sends back a 500 error with a JSON body containing the error message.
+
+        :return: None
+        :rtype: None
+        """
         if self.path == "/Drohnen_GmbH":
             try:
                 if not LAST_ORDER["id"] and not LAST_ORDER["number"]:
@@ -172,6 +249,21 @@ class PickingAdapterHandler(BaseHTTPRequestHandler):
 
 
     def do_POST(self):
+        """
+        Handles a POST request to /Drohnen_GmbH.
+
+        If there is a JSON body, it is expected to contain the order data in the format returned by load_bedarf_from_file().
+        If the body is empty, the function will attempt to load the order data from the file specified in BEDARF_FILE.
+
+        If the file is not found, the function will return a 400 error with a JSON body containing the error message.
+
+        If there is an error during the API call, the function will return the error as a JSON response with the same status code as the error.
+
+        If there is any other exception, the function will return a 500 error with a JSON body containing the error message.
+
+        :return: None
+        :rtype: None
+        """
         if self.path == "/Drohnen_GmbH":
             try:
                 bedarf = load_bedarf_from_file()
@@ -190,6 +282,21 @@ class PickingAdapterHandler(BaseHTTPRequestHandler):
 
 
     def do_DELETE(self):
+        """
+        Handles a DELETE request to /Drohnen_GmbH.
+
+        If there is a JSON body, it is expected to contain the order data in the format returned by load_bedarf_from_file().
+        If the body is empty, the function will attempt to load the order data from the file specified in BEDARF_FILE.
+
+        If the file is not found, the function will return a 400 error with a JSON body containing the error message.
+
+        If there is an error during the API call, the function will return the error as a JSON response with the same status code as the error.
+
+        If there is any other exception, the function will return a 500 error with a JSON body containing the error message.
+
+        :return: None
+        :rtype: None
+        """
         if self.path == "/Drohnen_GmbH":
             try:
                 content_length = int(self.headers.get("Content-Length", 0))
@@ -248,3 +355,4 @@ if __name__ == "__main__":
         print(f"Adapter-Server läuft auf Port {PORT} → Ziel-API: {API_BASE}")
         httpd.serve_forever()
         
+

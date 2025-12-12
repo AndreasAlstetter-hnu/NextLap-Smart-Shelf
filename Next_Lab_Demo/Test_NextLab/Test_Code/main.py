@@ -12,6 +12,18 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 
 def get_port(default=8310):
     # Port via Umgebungsvariable (NEXTLAB_PORT) > CLI-Arg > Default
+    """
+    Returns the port number to use for the HTTP server.
+
+    The port can be specified in three ways, in the following order of priority:
+
+    1. Environment variable NEXTLAB_PORT
+    2. Command line argument (first argument)
+    3. Default value (8310)
+
+    :return: The port number to use
+    :rtype: int
+    """
     if "NEXTLAB_PORT" in os.environ:
         return int(os.environ["NEXTLAB_PORT"])
     if len(sys.argv) > 1:
@@ -22,6 +34,17 @@ class ReusableHTTPServer(HTTPServer):
     allow_reuse_address = True  # schnelleres Rebind bei Neustarts
 
 def start_http_server(port: int):
+    """
+    Starts an HTTP server on the given port.
+
+    The server will be started in a separate thread and will be configured to
+    reuse the address in case of a bind error.
+
+    :param port: The port number to use for the HTTP server
+    :type port: int
+    :return: A tuple containing the started HTTP server and the thread it's running in
+    :rtype: tuple[http.server.HTTPServer, threading.Thread]
+    """
     httpd = ReusableHTTPServer(("0.0.0.0", port), PickingAdapterHandler)
     t = threading.Thread(target=httpd.serve_forever, kwargs={"poll_interval": 0.5}, name="http-server", daemon=False)
     t.start()
@@ -29,6 +52,16 @@ def start_http_server(port: int):
     return httpd, t
 
 def start_mqtt_client():
+    
+    """
+    Starts an MQTT client in a separate thread.
+
+    The client will be started in a separate thread and will be configured to
+    connect to the MQTT broker and subscribe to the picking topic.
+
+    :return: A tuple containing the started MQTT client and the thread it's running in
+    :rtype: tuple[mqtt_connection.MqttOrderClient, threading.Thread]
+    """
     client = MqttOrderClient()
     t = threading.Thread(target=client.start, name="mqtt-client", daemon=False)  # client.start() blockiert, bis stop()
     t.start()
@@ -36,10 +69,38 @@ def start_mqtt_client():
     return client, t
 
 def main():
+    """
+    Hauptprogramm der Anwendung
+
+    Führt eine HTTP-API auf einem lokalen Server auf, die
+    Aufträge von NextLab an die lokale API weiterleitet.
+
+    Außerdem wird ein MQTT-Client gestartet, der
+    Aufträge an die lokale API sendet und Status-Updates
+    von der API empfängt.
+
+    Der Dienst wird durch STRG+C (SIGINT) oder Stop-BAT
+    (SIGTERM) beendet.
+
+    :return: None
+    :rtype: None
+    """
     port = get_port()
     stop_evt = threading.Event()
 
     def on_signal(sig, frame):
+        """
+        Signal handler for SIGINT and SIGTERM.
+
+        Called when either SIGINT (STRG+C) or SIGTERM (Stop-BAT) is received.
+
+        :param sig: The signal that was received
+        :type sig: int
+        :param frame: The current stack frame
+        :type frame: frame
+        :return: None
+        :rtype: None
+        """
         logging.info(f"Signal {sig} empfangen – fahre Dienste sauber herunter …")
         stop_evt.set()
 
